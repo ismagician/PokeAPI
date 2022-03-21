@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Poke API</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <img class="center" src="./assets/pokeapi_256.png" />
+            </div>
+            <div class="leftDiv"></div>
+            <div class="rightDiv"></div>
+            <div class="upDiv"></div>
+
+            <div class="row1">
+                <div class="upCenter">
+                    <div class="triangleLeft"></div>
+                    <div class="centro"></div>
+
+                    <div class="triangleRight"></div>
+                    <div class="screen"></div>
+
+                    <div class="preview">
+                        <div class="previewPokemon">
+                            <p class="pokeName">Nombre</p>
+                            <input
+                                type="image"
+                                src=""
+                                name="saveForm1"
+                                class="btTxtsubmit"
+                                id="saveForm1"
+                            />
+                        </div>
+                        <div class="previewPokemon">
+                            <p class="pokeName">Nombre</p>
+                            <input
+                                type="image"
+                                src=""
+                                name="saveForm2"
+                                class="btTxtsubmit"
+                                id="saveForm2"
+                            />
+                        </div>
+                        <div class="previewPokemon">
+                            <p class="pokeName">Nombre</p>
+                            <input
+                                type="image"
+                                src=""
+                                name="saveForm3"
+                                class="btTxtsubmit"
+                                id="saveForm4"
+                            />
+                        </div>
+                        <div class="previewPokemon">
+                            <p class="pokeName">Nombre</p>
+                            <input
+                                type="image"
+                                src=""
+                                name="saveForm4"
+                                class="btTxtsubmit"
+                                id="saveForm4"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row2">
+                <div class="row2Left"></div>
+                <div class="row2center">
+                    <div class="row3Image">
+                        <h3 id="pokeNombre">Elige Pokémon</h3>
+                        <image
+                            class="realImage"
+                            src="./assets/8bit2.png"
+                            id="pokeReal"
+                        >
+                        </image>
+                    </div>
+
+                    <div class="row3Stats">
+                        <div class="stats">
+                            <br />
+                            <p>
+                                <span class="statsPar">HP</span
+                                ><span class="valueStat" id="stat1">NF</span>
+                            </p>
+                            <br />
+                            <p>
+                                <span class="statsPar">Attack</span
+                                ><span class="valueStat" id="stat2">NF</span>
+                            </p>
+                            <br />
+                            <p>
+                                <span class="statsPar">Special-Attack</span
+                                ><span class="valueStat" id="stat3">NF</span>
+                            </p>
+                            <br />
+                            <p>
+                                <span class="statsPar">Special-Defense</span
+                                ><span class="valueStat" id="stat4">NF</span>
+                            </p>
+                            <br />
+                            <p>
+                                <span class="statsPar">Speed</span
+                                ><span class="valueStat" id="stat5">NF</span>
+                            </p>
+                            <br />
+                            <p>
+                                <span class="statsPar">Type</span
+                                ><span class="valueStat" id="type">NF</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row2Right"></div>
+            </div>
+
+            <div class="row3">
+                <div class="row3Left"></div>
+                <div class="row3center">
+                    <input
+                        type="image"
+                        src="./assets/arrow.png"
+                        name="arrowRight"
+                        class="arrows"
+                        id="arrowRight"
+                        value=""
+                    />
+                    <input
+                        type="image"
+                        src="./assets/arrow.png"
+                        name="arrowLeft"
+                        class="arrows"
+                        id="arrowLeft"
+                        value=""
+                    />
+                    <div class="search">
+                        <input
+                            type="text"
+                            placeholder="Inserte nombre"
+                            id="pokeSearch"
+                            name="pokeSearch"
+                        /><br />
+
+                        <button class="doSearch">Pokémon</button>
+                    </div>
+                </div>
+
+                <div class="row3Right"></div>
+            </div>
+
+            <div class="downDiv"></div>
+        </div>
+
+        <script src="./src/app.js"></script>
+    </body>
+</html>
