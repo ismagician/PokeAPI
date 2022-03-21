@@ -31,7 +31,7 @@ const fetchArrowPokemon = (url) => {
     //let pokeInput = pokeName.value.toLowerCase();
 
     const arrowRight = document.getElementById("arrowRight");
-    const arrowRLeft = document.getElementById("arrowLeft");
+    const arrowLeft = document.getElementById("arrowLeft");
 
     fetch(url)
         .then((res) => {
