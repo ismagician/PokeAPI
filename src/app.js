@@ -1,4 +1,4 @@
-//inicio 
+//inicio
 const fetchPokemon = () => {
     //const pokeName = document.getElementById("pokeName");
     //let pokeInput = pokeName.value.toLowerCase();
@@ -10,7 +10,7 @@ const fetchPokemon = () => {
         .then((res) => {
             //console.log(res);
             if (res.status != "200") {
-                pokeImage("./8bit2.png");
+                pokeStatsError();
             } else {
                 return res.json();
             }
@@ -37,7 +37,7 @@ const fetchArrowPokemon = (url) => {
         .then((res) => {
             //console.log(res);
             if (res.status != "200") {
-                pokeImage("./8bit2.png");
+                pokeStatsError();
             } else {
                 return res.json();
             }
@@ -51,7 +51,6 @@ const fetchArrowPokemon = (url) => {
         });
 };
 
-
 //mostrar pokemones en la parte superior
 const fetchImage = (pokeName, image) => {
     //const pokeName = document.getElementById("pokeName");
@@ -61,9 +60,8 @@ const fetchImage = (pokeName, image) => {
     //console.log(image);
     fetch(url)
         .then((res) => {
-            //console.log(res);
             if (res.status != "200") {
-                pokeImage("./image.gif");
+                pokeStatsError();
             } else {
                 return res.json();
             }
@@ -79,7 +77,6 @@ const fetchImage = (pokeName, image) => {
         });
 };
 
-
 //llenar datos de los pokemones que se muestran en la parte superior
 const pokeImage = (image) => {
     const y = document.getElementsByClassName("previewPokemon");
@@ -92,18 +89,11 @@ const pokeImage = (image) => {
 //pokemones iniciales
 function startName() {
     const x = document.getElementsByClassName("pokeName");
-    // console.log(x);
     const y = document.getElementsByClassName("previewPokemon");
-    //console.log(y);
-    //console.log(y.item(0).children.length)
-    //console.log(y.item(0));
-
-    //console.log(x.length);
     for (let i = 0; i < x.length; i++) {
         x.item(i).innerHTML = "Pokemón";
     }
 }
-
 
 //buscar pokemon
 const fetchData = (value) => {
@@ -112,15 +102,15 @@ const fetchData = (value) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeInput}`;
     fetch(url)
         .then((res) => {
-            //console.log(res);
+            console.log(res);
             if (res.status != "200") {
-                pokeImage("./image.gif");
+                console.log(res.status);
+                pokeStatsError();
             } else {
                 return res.json();
             }
         })
         .then((data) => {
-            //console.log(data)
             const pokeImg = data.sprites.front_default;
             let tipo = "";
             //console.log(data.types.length)
@@ -166,6 +156,25 @@ const pokeStats = (url) => {
     pokeImg.src = url.img;
 };
 
+const pokeStatsError = () => {
+    const pokeImg = document.getElementById("pokeReal");
+    const stat1 = document.getElementById("stat1");
+    const stat2 = document.getElementById("stat2");
+    const stat3 = document.getElementById("stat3");
+    const stat4 = document.getElementById("stat4");
+    const stat5 = document.getElementById("stat5");
+    const type = document.getElementById("type");
+    const name = document.getElementById("pokeNombre");
+    const nf = "NF";
+    stat1.textContent = nf;
+    stat2.textContent = nf;
+    stat3.textContent = nf;
+    stat4.textContent = nf;
+    stat5.textContent = nf;
+    type.textContent = nf;
+    name.textContent = "Error.";
+    pokeImg.src = "./assets/8bit2.png";
+};
 //escuchador de eventos, se elige la función de acuerdo al input presionadoo
 document.addEventListener("click", (e) => {
     let element = e.target;
@@ -175,7 +184,7 @@ document.addEventListener("click", (e) => {
         element.className == "btTxtsubmit"
     ) {
         fetchData(element.value);
-        //console.log(element.value)
+        console.log(element.value);
     } else if (
         typeof element.value !== "undefined" &&
         element.className == "arrows"
@@ -195,6 +204,5 @@ document.addEventListener("click", (e) => {
         input.value = "";
     }
 });
-
 
 fetchPokemon();
