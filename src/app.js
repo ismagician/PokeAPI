@@ -102,9 +102,9 @@ const fetchData = (value) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeInput}`;
     fetch(url)
         .then((res) => {
-            console.log(res);
+            //console.log(res);
             if (res.status != "200") {
-                console.log(res.status);
+                //console.log(res.status);
                 pokeStatsError();
             } else {
                 return res.json();
@@ -190,7 +190,7 @@ document.addEventListener("click", (e) => {
         element.className == "arrows"
     ) {
         if (element.value) {
-            console.log(element.value);
+            //console.log(element.value);
             fetchArrowPokemon(element.value);
         }
     } else if (
