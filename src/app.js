@@ -1,10 +1,11 @@
 //inicio
+let urlNext='';
+let urlPrev='';
 const fetchPokemon = () => {
-    //const pokeName = document.getElementById("pokeName");
-    //let pokeInput = pokeName.value.toLowerCase();
+
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=4`;
-    const arrowRight = document.getElementById("arrowRight");
-    const arrowLeft = document.getElementById("arrowLeft");
+    //const arrowRight = document.getElementById("arrowRight");
+    //const arrowLeft = document.getElementById("arrowLeft");
 
     fetch(url)
         .then((res) => {
@@ -18,8 +19,8 @@ const fetchPokemon = () => {
         .then((data) => {
             //console.log(data)
             let pokeImg = data.results;
-            arrowRight.value = data.next;
-            arrowLeft.value = data.previous;
+            urlNext = data.next;
+            urlPrev = data.previous;
             //console.log(pokeImg);
             pokeImage(pokeImg);
         });
@@ -27,11 +28,9 @@ const fetchPokemon = () => {
 
 //buscar pokemon por grupo
 const fetchArrowPokemon = (url) => {
-    //const pokeName = document.getElementById("pokeName");
-    //let pokeInput = pokeName.value.toLowerCase();
 
-    const arrowRight = document.getElementById("arrowRight");
-    const arrowLeft = document.getElementById("arrowLeft");
+    //const arrowRight = document.getElementById("arrowRight");
+    //const arrowLeft = document.getElementById("arrowLeft");
 
     fetch(url)
         .then((res) => {
@@ -45,8 +44,8 @@ const fetchArrowPokemon = (url) => {
         .then((data) => {
             //console.log(data)
             let pokeImg = data.results;
-            arrowRight.value = data.next;
-            arrowLeft.value = data.previous;
+            urlNext = data.next;
+            urlPrev = data.previous;
             pokeImage(pokeImg);
         });
 };
@@ -57,7 +56,7 @@ const fetchImage = (pokeName, image) => {
     //let pokeInput = pokeName.value.toLowerCase();
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
 
-    //console.log(image);
+
     fetch(url)
         .then((res) => {
             if (res.status != "200") {
@@ -186,13 +185,12 @@ document.addEventListener("click", (e) => {
         fetchData(element.value);
         console.log(element.value);
     } else if (
-        typeof element.value !== "undefined" &&
+
         element.className == "arrows"
     ) {
-        if (element.value) {
-            //console.log(element.value);
-            fetchArrowPokemon(element.value);
-        }
+       
+        fetchArrowPokemon(urlNext);
+        
     } else if (
         typeof element.value !== "undefined" &&
         element.className == "doSearch"
